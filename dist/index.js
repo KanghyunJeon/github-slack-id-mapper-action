@@ -30822,7 +30822,7 @@ async function main() {
         const slackId = githubDeveloperIdMap[githubUserId] ? `<@${githubDeveloperIdMap[githubUserId]}>` : ``;
 
         core.info(`main() / slackId=${slackId}`);
-        core.setOutput("slackId", slackId);
+        core.setOutput("slack-user-id", slackId);
 
     } catch (error) {
         core.info(`main() / Error occured.`);
