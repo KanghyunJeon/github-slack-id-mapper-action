@@ -1,0 +1,22 @@
+name: 'Github Slack ID mapper action'
+description: 'Greet someone and record the time'
+author: "KanghyunJeon"
+
+branding:
+  icon: 'arrow-left-circle'
+  color: 'red'
+
+inputs:
+  github-developer-id-mapping:
+    description: "String that we need for mapping from Github User ID to Slack User ID. Ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN "
+    required: true
+  github-user-id:
+    description: "String that we want to get from 'github-developer-id-mapping'. Ex) ${{ github.event.pusher.name }} -> KanghyunJeon will return UUABCDEFG "
+    required: true
+outputs:
+  slack-user-id:
+    description: 'Slack User ID'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
