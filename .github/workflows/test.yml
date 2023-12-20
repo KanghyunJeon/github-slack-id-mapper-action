@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: getSlackID
         id: firstStepId
-        uses: KanghyunJeon/github-slack-id-mapper-action@v0.0.3
+        uses: KanghyunJeon/github-slack-id-mapper-action@v0.0.4
         with:
           github-developer-id-mapping: "KanghyunJeon:UUABCDEFG,member:UuHIJKLMN" # Required, need to set github repository vaiables ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN'
           github-user-id: KanghyunJeon # Required   ex) KanghyunJeon, ${{ github.event.pusher.name }}
