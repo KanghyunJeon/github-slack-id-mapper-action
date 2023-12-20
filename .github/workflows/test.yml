@@ -1,32 +1,22 @@
-######TEST
-######TEST
-######TEST
-######TEST
-######TEST
-######TEST
 name: 'test github action'
 on:
   push:
     branches:
       - main #set test branch
-
 permissions:
   contents: write
   pull-requests: write
-
 jobs:
   pull-request-reviewer-reminder:
     runs-on: ubuntu-latest
     steps:
-      - name: print infos
-        run: echo "github.event.pusher.name = ${{ github.event.pusher.name }}" 
-
+      # - name: print infos
+        # run: echo "github.event.pusher.name = ${{ github.event.pusher.name }}" 
       - name: getSlackID
         id: firstStepId
         uses: KanghyunJeon/github-slack-id-mapper-action@v0.0.3
         with:
           github-developer-id-mapping: "KanghyunJeon:UUABCDEFG,member:UuHIJKLMN" # Required, need to set github repository vaiables ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN'
-          github-user-id: ${{ github.event.pusher.name }} # Required   ex) KanghyunJeon
-
+          github-user-id: KanghyunJeon # Required   ex) KanghyunJeon, ${{ github.event.pusher.name }}
       - name: doOtherJobs
         run: echo "SlackID = ${{ steps.firstStepId.outputs.slack-user-id }}"
