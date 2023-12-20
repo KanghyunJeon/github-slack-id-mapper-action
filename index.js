@@ -1,7 +1,7 @@
 
 const core = require('@actions/core');
 const github = require('@actions/github');
-let myFunction = require('./utils/my-function');
+let myFunction = require('./utils/my-functions');
 
 async function main() {
     try {
