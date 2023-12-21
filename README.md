@@ -60,7 +60,7 @@ jobs:
           github-user-id: KanghyunJeon # Required   ex) KanghyunJeon, ${{ github.event.pusher.name }}
       - name: doOtherJobs
         run: echo "SlackID = ${{ steps.firstStepId.outputs.slack-user-id }}" 
-             # co other works with that SlackID
+             # Do other works with that SlackID
 
 ``` 
 
