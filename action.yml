@@ -1,5 +1,5 @@
 name: 'Github Slack ID mapper action'
-description: 'Greet someone and record the time'
+description: 'Input Github ID and Return Slack ID Action'
 author: "KanghyunJeon"
 
 branding:
@@ -11,11 +11,11 @@ inputs:
     description: "String that we need for mapping from Github User ID to Slack User ID. Ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN "
     required: true
   github-user-id:
-    description: "String that we want to get from 'github-developer-id-mapping'. Ex) github_event_pusher_name -> KanghyunJeon will return UUABCDEFG "
+    description: "String that we want to search from 'github-developer-id-mapping'. Ex) github_event_pusher_name -> KanghyunJeon will return UUABCDEFG "
     required: true
 outputs:
   slack-user-id:
-    description: 'Slack User ID'
+    description: 'Slack User ID that will be returned.'
 runs:
   using: 'node20'
   main: 'dist/index.js'

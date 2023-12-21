@@ -30852,7 +30852,7 @@ async function main() {
 
         core.info(`main() / get slack ID`);
         const githubDeveloperIdMap = myFunction.stringToMap(githubDeveloperIdMappingString);
-        const slackId = githubDeveloperIdMap[githubUserId] ? `<@${githubDeveloperIdMap[githubUserId]}>` : ``;
+        const slackId = githubDeveloperIdMap[githubUserId] ? `<@${githubDeveloperIdMap[githubUserId]}>` : githubUserId;
 
         core.info(`main() / slackId=${slackId}`);
         core.setOutput("slack-user-id", slackId);
