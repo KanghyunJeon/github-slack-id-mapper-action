@@ -62,7 +62,8 @@ jobs:
         with:
           github-developer-id-mapping: "KanghyunJeon:UUABCDEFG,member:UuHIJKLMN" # Required, need to set github repository vaiables 
           # ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN' or something like ${{ vars.SLACK_DEVELOPER_ID }}
-          github-user-id: KanghyunJeon # Required   ex) KanghyunJeon, ${{ github.event.pusher.name }}
+          github-user-id: KanghyunJeon                 # Choice 1 / Single Id        ex) KanghyunJeon, ${{ github.event.pusher.name }}
+          github-user-ids:KanghyunJeon,user1,user2     # Choice 2 / Multiple IDs     ex) ${{ join(github.event.pull_request.requested_reviewers.*.login, ',') }}
       - name: doOtherJobs
         run: echo "SlackID = ${{ steps.firstStepId.outputs.slack-user-id }}" 
              # Do other works with that SlackID
