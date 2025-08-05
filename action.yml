@@ -12,10 +12,13 @@ inputs:
     required: true
   github-user-id:
     description: "String that we want to search from 'github-developer-id-mapping'. Ex) github_event_pusher_name -> KanghyunJeon will return UUABCDEFG "
-    required: true
+    required: false
+  github-user-ids:
+    description: "String that multiple reviewer's ids. EX) 'KanghyunJeon,userA,userB' "
+    required: false
 outputs:
   slack-user-id:
-    description: 'Slack User ID that will be returned.'
+    description: 'Slack User ID or IDs that will be returned.'
 runs:
   using: 'node20'
   main: 'dist/index.js'

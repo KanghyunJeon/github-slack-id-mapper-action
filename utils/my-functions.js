@@ -1,6 +1,7 @@
 module.exports = {
     checkGithubProviderFormat,
     stringToMap,
+    mapGithubIdsToSlackIds,
 };
 
 
@@ -31,4 +32,23 @@ function stringToMap(githubDeveloperIdMappingString) {
         map[github] = provider;
     });
     return map;
+}
+
+
+/**
+ * Maps a comma-separated string of GitHub IDs to Slack IDs.
+ * @param {string} githubIdsString Comma-separated string of GitHub IDs.
+ * @param {object} idMap The mapping object from GitHub IDs to Slack IDs.
+ * @returns {string} Comma-separated string of mapped Slack IDs.
+ */
+function mapGithubIdsToSlackIds(githubIdsString, idMap) {
+    if (!githubIdsString) {
+        return '';
+    }
+    const githubUserIds = githubIdsString.split(',').map(id => id.trim()).filter(id => id);
+    const mappedIds = githubUserIds.map(userId => {
+        const slackId = idMap[userId];
+        return slackId ? `<@${slackId}>` : userId;
+    });
+    return mappedIds.join(',');
 }
