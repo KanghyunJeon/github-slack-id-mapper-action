@@ -8,17 +8,17 @@ branding:
 
 inputs:
   github-developer-id-mapping:
-    description: "String that we need for mapping from Github User ID to Slack User ID. Ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN "
+    description: "'KanghyunJeon:UUABCDEFG,member:UuHIJKLMN' -> String that we need for mapping from Github User ID to Slack User ID. Ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN"
     required: true
   github-user-id:
-    description: "String that we want to search from 'github-developer-id-mapping'. Ex) github_event_pusher_name -> KanghyunJeon will return UUABCDEFG "
+    description: "'KanghyunJeon' -> Choice 1 / String that we want to search from 'github-developer-id-mapping'. Ex) github_event_pusher_name -> KanghyunJeon will return UUABCDEFG"
     required: false
   github-user-ids:
-    description: "String that multiple reviewer's ids. EX) 'KanghyunJeon,userA,userB' "
+    description: "'KanghyunJeon,userA,userB' -> Choice 2 / String that multiple reviewer's ids."
     required: false
 outputs:
   slack-user-id:
-    description: 'Slack User ID or IDs that will be returned.'
+    description: "'<@UUABCDEFG>,<@UuOPQRSTU>' -> Slack User ID or IDs that will be returned."
 runs:
   using: 'node20'
   main: 'dist/index.js'

@@ -12,9 +12,14 @@ String that we need for mapping from Github ID to Slack ID <br/>
 Ex) 'KanghyunJeon:UUABCDEFG,member:UuHIJKLMN' or recommended way like ${{ vars.SLACK_DEVELOPER_ID }}
 
 **`github-user-id`** <br/>
-String that we want to search from 'github-developer-id-mapping'.
-**Required: true** <br/>
+Choice 1 / Single ID / String that we want to search from 'github-developer-id-mapping'.
+**Required: false** <br/>
 Ex) use something like ${{ github.event.pusher.name }} or Just any string value(in this case 'KanghyunJeon')
+
+**`github-user-ids`** <br/>
+Choice 2 / Multiple IDs / String that multiple reviewer's ids that we want to search from 'github-developer-id-mapping'. GitHub IDs to Slack IDs
+**Required: false** <br/>
+Ex) use something like ${{ join(github.event.pull_request.requested_reviewers.*.login, ',') }} or Just any string value(in this case 'KanghyunJeon,user1,user2')
 
 <br/>
 <br/>
@@ -53,7 +58,7 @@ jobs:
     steps:
       - name: getSlackID
         id: firstStepId
-        uses: KanghyunJeon/github-slack-id-mapper-action@v1.0.0
+        uses: KanghyunJeon/github-slack-id-mapper-action@v1.0.1
         with:
           github-developer-id-mapping: "KanghyunJeon:UUABCDEFG,member:UuHIJKLMN" # Required, need to set github repository vaiables 
           # ex) KanghyunJeon:UUABCDEFG,member:UuHIJKLMN' or something like ${{ vars.SLACK_DEVELOPER_ID }}

@@ -1,6 +1,6 @@
 {
   "name": "github-slack-id-mapper-action",
-  "version": "1.0.1-rc1",
+  "version": "1.0.1",
   "description": "return Github ID to Slack ID",
   "main": "index.js",
   "scripts": {
