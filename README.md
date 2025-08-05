@@ -33,6 +33,9 @@ Ex) if there is `github-user-id` value in `github-developer-id-mapping` value, t
     In this case, KanghyunJeon will return `<@UUABCDEFG>` <br/>
 Ex) if not, 'github-user-id' will be returned.
     In this case, KanghyunJeon
+Ex) If `github-user-ids` is used, a comma-separated string of mapped IDs will be returned.
+    Input: `github-user-ids: 'KanghyunJeon,non-existent-user'`
+    Output: `<@UUABCDEFG>,non-existent-user`
 
 
 <br/>
